@@ -9,13 +9,10 @@ const App = () => {
   return (
     <div id="main">
       <AddTodo dispatch={dispatch} />
-      {state && 
+      {state &&
         state.map((ele) => {
-          return (
-            <Todo className="todo" ele={ele} key={ele.id} dispatch={dispatch} />
-          );
-        })
-      }
+          return <Todo ele={ele} key={ele.id} dispatch={dispatch} />;
+        })}
     </div>
   );
 };
