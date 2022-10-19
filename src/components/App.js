@@ -1,19 +1,23 @@
-import React, { useReducer } from 'react'
-import { todoReducer } from '../reducers/todo';
-import '../styles/App.css';
-import { AddTodo } from './AddTodo';
-import { Todo } from './Todo';
+import React, { useReducer } from "react";
+import { todoReducer } from "../reducers/todo";
+import "../styles/App.css";
+import { AddTodo } from "./AddTodo";
+import { Todo } from "./Todo";
 const App = () => {
-  const [state,dispatch] = useReducer(todoReducer,{/* Initial todo state array, could be an array for storing indivial todo objects */})
-  
+  const [state, dispatch] = useReducer(todoReducer, []);
  
   return (
     <div id="main">
-      <AddTodo />
-     {/* Render list of Todo Components here */}
+      <AddTodo dispatch={dispatch} />
+      {state ? (
+        state.map((ele) => {
+          return <Todo ele={ele} key={ele.id} dispatch={dispatch} />;
+        })
+      ) : (
+        <h1>no data</h1>
+      )}
     </div>
-  )
-}
-
+  );
+};
 
 export default App;
