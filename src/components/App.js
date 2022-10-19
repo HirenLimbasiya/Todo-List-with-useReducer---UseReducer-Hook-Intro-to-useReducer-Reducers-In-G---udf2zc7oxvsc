@@ -5,13 +5,15 @@ import { AddTodo } from "./AddTodo";
 import { Todo } from "./Todo";
 const App = () => {
   const [state, dispatch] = useReducer(todoReducer, []);
- 
+
   return (
     <div id="main">
       <AddTodo dispatch={dispatch} />
       {state ? (
         state.map((ele) => {
-          return <Todo ele={ele} key={ele.id} dispatch={dispatch} />;
+          return (
+            <Todo className="todo" ele={ele} key={ele.id} dispatch={dispatch} />
+          );
         })
       ) : (
         <h1>no data</h1>
