@@ -9,15 +9,13 @@ const App = () => {
   return (
     <div id="main">
       <AddTodo dispatch={dispatch} />
-      {state ? (
+      {state && 
         state.map((ele) => {
           return (
             <Todo className="todo" ele={ele} key={ele.id} dispatch={dispatch} />
           );
         })
-      ) : (
-        <h1>no data</h1>
-      )}
+      }
     </div>
   );
 };
