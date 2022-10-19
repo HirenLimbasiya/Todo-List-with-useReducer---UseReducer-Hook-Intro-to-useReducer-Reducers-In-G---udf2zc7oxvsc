@@ -10,14 +10,14 @@ const Todo = ({ ele, dispatch }) => {
   }
 
   return (
-    <>
+    
     <div className="todo">
       <div className="todo-title">{ele.title}</div>
-    </div>
+    
       <button className="todo-delete" onClick={() => deleteTodo(ele.id)}>
         Delete
       </button>
-    </>
+    </div>
   );
 };
 
